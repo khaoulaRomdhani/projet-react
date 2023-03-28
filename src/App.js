@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Main from './components/main';
+import Home from './components/home';
+import Menu from './components/menu';
+import Apropos from './components/apropos';
+import Inscription from './components/inscription';
+import Connecter from './components/connecter';
+import Admin from './components/admin';
+import Contact from './components/contact';
+import Ingredients from './components/ingredients';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      
+    
+    <BrowserRouter>
+   
+      <Routes>
+        <Route path="/" element={<Main />}>  
+        <Route path="/home" element={<Home/>}></Route>
+        <Route path="/menu" element={<Menu/>}></Route>
+        <Route path="/contact" element={<Contact/>}></Route>
+        <Route path="/inscription" element={<Inscription/>}></Route>
+        <Route path="/apropos" element={<Apropos/>}></Route>
+        <Route path="/connecter" element={<Connecter/>}></Route>
+        <Route path="/admin" element={<Admin/>}></Route>
+        <Route path="/ingredients" element={<Ingredients/>}></Route>
+       
+        </Route>
+        
+      
+      </Routes>
+   
+    
+    </BrowserRouter>
+     
   );
 }
 

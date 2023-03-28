@@ -1,0 +1,199 @@
+  
+
+
+   .acc{
+    background-image: url("https://media.istockphoto.com/id/1167505855/photo/frame-of-healthy-food-in-black-boxes-with-blank-space-on-white.jpg?s=612x612&w=0&k=20&c=-MDm_Dlvu81p49Vlg-13PUD5Imspz3245zPR-sOHgXE=");
+ padding: 13% 0%;
+ background-size: cover;
+ background-repeat: no-repeat;
+ min-width: 100%;
+ 
+ 
+
+}
+ .text-home{
+    text-align: center;
+    
+}
+.text-home h2{
+   font-weight: bold;
+   text-transform: capitalize;
+
+ 
+   font-size: 3em;
+   padding-bottom: 1%;
+}
+.text-home p{
+    
+    text-transform: capitalize;
+
+    font-size: 1em;
+    padding-bottom: 2%;
+ }
+ 
+
+ .acc button{
+    
+    font-size: 1em;
+    color: #fff;
+    background-color:rgb(182, 59, 14);
+   
+
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing:2px;
+   
+
+   
+    box-sizing: border-box;
+    font-weight: bold;
+    border-color:rgb(182, 59, 14) ;
+ }
+
+
+.acc button:hover{
+    letter-spacing: 4px;
+    background-color: #82bac0;
+    color: white;
+    border-color:#82bac0 ;
+}
+
+.logo{
+    width: 100px;
+    height: 100px;
+ 
+
+}
+
+nav a{
+    color: orange !important;
+    font-size: 15px;
+ 
+    
+
+}
+ a:hover{
+    color:red !important;
+}
+nav img{
+    max-width: 100%;
+    height: 90%;
+
+}/*
+nav #lastnav{
+    border: 1px solid orange;
+    background-color: orange;
+   width: 200px;
+   height: 50px;
+ box-sizing: border-box;
+ color: #fff !important;
+
+}
+nav #lastnav:hover{
+    background-color: transparent;
+    color:orange !important;
+    transition: -2s ease-in-out;
+
+}*/
+
+    
+    .row{
+        background-color: rgb(238, 235, 235);
+        text-align: center;
+        height: 100%;
+    }
+    .footer{
+        background-color:rgb(227, 221, 221);
+        color: black;
+        text-align: center;
+     height: 40px;
+      
+    }
+    .couleur-admin{
+        background-color: rgb(227, 221, 221);
+        
+    }
+    
+    
+  
+   
+    .row{
+        background-color: #fb911f;
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding: 3% 0%;
+        
+        
+    }
+    
+     
+    .ingredients{
+        
+      
+        text-align: center;
+     
+      
+        background-color: white;
+        padding: 2% 0%;
+    }
+    /* Style pour le menu */
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .section {
+    flex: 1;
+   
+  }
+  
+  .item {
+    display: flex;
+   
+  }
+  
+  img {
+    height: 100px;
+  
+  }
+  
+  .info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  
+  .price {
+  
+    font-weight: bold;
+  }
+  
+  .recipe {
+    display: none;
+  
+  }
+  
+  .recipe ul, .recipe ol {
+  
+    padding-left: 20px;
+  }
+  
+  /* Style pour le bouton Recette */
+  .recipe-button {
+   
+    background-color:#fb911f;
+    border-color:#fb911f;
+  }
+  
+  .recipe-button:focus + .recipe {
+    display: block;
+  }
+  .section span{
+    color:#fb911f;
+  }
+  
+   
+   
+    
+   
+   
