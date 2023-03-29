@@ -1,6 +1,39 @@
-import React from 'react'
+
+import React, { useState } from 'react';
+import axios from 'axios';
 import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
 function Inscription() {
+  const [nom, setnom] = useState("");
+  const [prenom, setprenom] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmePwd, setconfirmePwd] = useState("");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      if (password==confirmePwd){
+    const response = await axios.post(
+
+       
+        "http://localhost:3200/api/auth/register",
+        {
+        nom:nom,
+        prenom:prenom,
+          email: email,
+          password: password,
+          confirmePwd:confirmePwd,
+        }
+      );
+      console.log(response.data);
+      alert("inscription terminée!");
+    }
+    else{
+      alert("mot de pass incorrect!");
+    }
+  } catch (error) {
+      console.log(error);
+    }
+  };
     return (
         <div>
       <Container>
@@ -13,18 +46,18 @@ function Inscription() {
                   <h2 className="fw-bold mb-2 text-uppercase ">TastyFood</h2>
                   <p className=" mb-1">Inscrivez-vous!</p>
                   <div className="mb-1">
-                    <Form>
+                    <Form onSubmit={handleSubmit}>
 
                     <Form.Group className="mb-1" controlId="formBasicNom">
                         <Form.Label className="text-center">
                           Nom:
                         </Form.Label>
-                        <Form.Control type="text" placeholder="Entrer votre nom" />
+                        <Form.Control type="text" placeholder="Entrer votre nom"  onChange={(e)=>setnom(e.target.value)} />
                       </Form.Group> <Form.Group className="mb-1" controlId="formBasicPrenom">
                         <Form.Label className="text-center">
                          Prénom:
                         </Form.Label>
-                        <Form.Control type="text" placeholder="Entrer votre prénom" />
+                        <Form.Control type="text" placeholder="Entrer votre prénom"   onChange={(e)=>setprenom(e.target.value)}/>
                       </Form.Group>
 
 
@@ -32,7 +65,7 @@ function Inscription() {
                         <Form.Label className="text-center">
                           Adresse Email
                         </Form.Label>
-                        <Form.Control type="email" placeholder="Entrer email" />
+                        <Form.Control type="email" placeholder="Entrer email"   onChange={(e)=>setEmail(e.target.value)}/>
                       </Form.Group>
 
                       <Form.Group
@@ -40,13 +73,13 @@ function Inscription() {
                         controlId="formBasicPassword"
                       >
                         <Form.Label>Mot De Passe:</Form.Label>
-                        <Form.Control type="password" placeholder="Mot de passe" />
+                        <Form.Control type="password" placeholder="Mot de passe"   onChange={(e)=>setPassword(e.target.value)}/>
                       </Form.Group>
                       <Form.Group className="mb-1" controlId="formBasicConfirmePsw">
                         <Form.Label className="text-center">
                          Confirmer votre mot de passe:
                         </Form.Label>
-                        <Form.Control type="email" placeholder="Répeter votre mot de passe" />
+                        <Form.Control type="password" placeholder="Répeter votre mot de passe"  onChange={(e)=>setconfirmePwd(e.target.value) }/>
                       </Form.Group>
 
                      
