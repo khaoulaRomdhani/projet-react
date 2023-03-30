@@ -1,8 +1,35 @@
-import React from 'react'
+
+import React, { useState } from 'react';
+import axios from 'axios';
 import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
+import { useHistory } from 'react-router-dom';
+
+
 
 function Connecter() {
-    
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const history = useHistory();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        "http://localhost:3200/api/auth/login",
+        {
+          email: email,
+          password: password,
+        }
+      );
+      console.log(response.data);
+      alert("Login successful!");
+      history.push('/home');
+
+    } catch (error) {
+      console.log(error);
+      alert("Invalid email or password");
+    }
+  };
   return (
     <div>
       <Container>
@@ -15,12 +42,12 @@ function Connecter() {
                   <h2 className="fw-bold mb-2 text-uppercase ">TastyFood</h2>
                   <p className=" mb-5">Veuillez saisir votre identifiant et votre mot de passe !</p>
                   <div className="mb-3">
-                    <Form>
+                    <Form onSubmit={handleSubmit}>
                       <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label className="text-center">
                           Adresse Email
                         </Form.Label>
-                        <Form.Control type="email" placeholder="Entrer email" />
+                        <Form.Control type="email" placeholder="Entrer email" value={email} onChange={(e)=>setEmail(e.target.value)}/>
                       </Form.Group>
 
                       <Form.Group
@@ -28,7 +55,7 @@ function Connecter() {
                         controlId="formBasicPassword"
                       >
                         <Form.Label>Mot De Passe</Form.Label>
-                        <Form.Control type="password" placeholder="Mot de passe" />
+                        <Form.Control type="password" placeholder="Mot de passe" value={password} onChange={(e)=>setPassword(e.target.value)} />
                       </Form.Group>
                       <Form.Group
                         className="mb-3"
