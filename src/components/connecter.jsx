@@ -18,6 +18,7 @@ function Connecter() {
         }
       );
       navigate('/');
+      
       alert("Login successful!");
     } catch (error) {
       alert("Invalid email or password");

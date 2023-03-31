@@ -1,4 +1,4 @@
-import { useState } from 'react';
+/*import { useState } from 'react';
 import { Form, FormGroup, FormCheck, Button } from 'react-bootstrap';
 import { BsX } from 'react-icons/bs';
 
@@ -63,8 +63,8 @@ function App() {
               label="Bread (in General)"
               onChange={handleCheckboxChange}
             />
-            {/* Continue adding the remaining checkboxes */}
-          </FormGroup>
+            {/* Continue adding the remaining checkboxes */
+         /* </FormGroup>
         </Form>
       </div>
       <div className="second_big_cont">
@@ -102,4 +102,104 @@ function App() {
     </div>
   ); 
 }
-export default App;
+export default App;*/
+import { useState } from 'react';
+
+const ingredientsList = [
+{ nom: 'poulet' },
+{ nom: 'ail' },
+{ nom: 'romarin' },
+{ nom: 'citron' },
+{ nom: 'spaghetti' },
+{ nom: 'viande hachée' },
+{ nom: 'sauce tomate' },
+{ nom: 'oignon' },
+{ nom: 'laitue' },
+{ nom: 'parmesan' },
+{ nom: 'croutons' },
+];
+
+const platsList = [
+{ nom: 'Poulet rôti', ingredients: ['poulet', 'ail', 'romarin', 'citron'] },
+{
+nom: 'Spaghetti bolognaise',
+ingredients: ['spaghetti', 'viande hachée', 'sauce tomate', 'oignon', 'ail'],
+},
+{ nom: 'Salade césar', ingredients: ['laitue', 'poulet', 'parmesan', 'croutons'] },
+];
+
+const YComponent = () => {
+const [selectedIngredients, setSelectedIngredients] = useState([]);
+const [platsPouvantEtrePrepares, setPlatsPouvantEtrePrepares] = useState([]);
+
+const handleIngredientChange = (event) => {
+const ingredient = event.target.value;
+const checkbox = event.target;
+
+if (checkbox.checked) {
+  setSelectedIngredients([...selectedIngredients, ingredient]);
+} else {
+  const index = selectedIngredients.indexOf(ingredient);
+  if (index !== -1) {
+    setSelectedIngredients(selectedIngredients.filter((_, i) => i !== index));
+  }
+}
+
+};
+
+const getPlatsPouvantEtrePrepares = () => {
+if (selectedIngredients.length === 0) {
+setPlatsPouvantEtrePrepares([]);
+} else {
+setPlatsPouvantEtrePrepares(
+platsList.filter((plat) =>
+selectedIngredients.every((ingredient) => plat.ingredients.includes(ingredient))
+)
+);
+}
+};
+
+return (
+<>
+<h2>Ingrédients</h2>
+{ingredientsList.map((ingredient, index) => (
+<div key={index}>
+<input
+         type="checkbox"
+         value={ingredient.nom}
+         onChange={handleIngredientChange}
+         checked={selectedIngredients.includes(ingredient.nom)}
+       />
+{ingredient.nom}
+</div>
+))}
+
+<h2>Plats pouvant être préparés avec les ingrédients sélectionnés</h2>
+  {platsPouvantEtrePrepares.length > 0 ? (
+    <ul>
+      {platsPouvantEtrePrepares.map((plat, index) => (
+        <li key={index}>{plat.nom}</li>
+      ))}
+    </ul>
+  ) : (
+    <p>Aucun plat ne peut être préparé avec les ingrédients sélectionnés.</p>
+  )}
+
+  <h2>Ingrédients sélectionnés</h2>
+  {selectedIngredients.map((ingredient, index) => (
+    <div key={index}>
+      <input
+        type="checkbox"
+        value={ingredient}
+        onChange={handleIngredientChange}
+        checked={selectedIngredients.includes(ingredient)}
+      />
+      {ingredient}
+    </div>
+  ))}
+</>
+
+);
+};
+
+export default YComponent;
