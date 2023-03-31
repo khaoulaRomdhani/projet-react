@@ -1,5 +1,6 @@
 import React from 'react'
 import"../css/style.css"
+
 import {
 
     Container,
@@ -23,11 +24,11 @@ function Header() {
           {/*
             <NavLink to="/"><img src="https://thumbs.dreamstime.com/b/food-talk-logo-images-illustration-design-food-talk-logo-images-illustration-215434984.jpg" class="logo"/></NavLink>
     */}
-          <Navbar.Brand href="/home" ><b>TastyFood</b></Navbar.Brand>
+          <Navbar.Brand href="/" ><b>TastyFood</b></Navbar.Brand>
           </div>
           <Nav className="d-flex justify-content-around">
          
-            <Nav.Link  href="/home">Home</Nav.Link>
+            <Nav.Link  href="/">Home</Nav.Link>
             <Nav.Link href="/Admin">Admin</Nav.Link>
             <Nav.Link href="/Menu">Menu</Nav.Link>
             <Nav.Link href="/Contact">Contact</Nav.Link>

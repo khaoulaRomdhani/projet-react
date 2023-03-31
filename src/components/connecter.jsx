@@ -1,32 +1,25 @@
 
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
-import { useHistory } from 'react-router-dom';
-
-
-
 function Connecter() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const history = useHistory();
-
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
+       await axios.post(
         "http://localhost:3200/api/auth/login",
         {
           email: email,
           password: password,
         }
       );
-      console.log(response.data);
+      navigate('/');
       alert("Login successful!");
-      history.push('/home');
-
     } catch (error) {
-      console.log(error);
       alert("Invalid email or password");
     }
   };
@@ -39,7 +32,7 @@ function Connecter() {
             <Card className="shadow">
               <Card.Body>
                 <div className="mb-3 mt-md-4">
-                  <h2 className="fw-bold mb-2 text-uppercase ">TastyFood</h2>
+                  <h2 className="fw-bold mb-2 text-uppercase ">Se connecter</h2>
                   <p className=" mb-5">Veuillez saisir votre identifiant et votre mot de passe !</p>
                   <div className="mb-3">
                     <Form onSubmit={handleSubmit}>
@@ -49,7 +42,6 @@ function Connecter() {
                         </Form.Label>
                         <Form.Control type="email" placeholder="Entrer email" value={email} onChange={(e)=>setEmail(e.target.value)}/>
                       </Form.Group>
-
                       <Form.Group
                         className="mb-3"
                         controlId="formBasicPassword"
@@ -76,7 +68,7 @@ function Connecter() {
                     <div className="mt-3">
                       <p className="mb-0  text-center">
                         Créer Un Compte!{" "}
-                        <a href="{''}" className="text-warning fw-bold">
+                        <a href="/inscription" className="text-warning fw-bold">
                           Inscription
                         </a>
                       </p>

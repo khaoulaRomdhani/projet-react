@@ -1,6 +1,8 @@
 
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+
 import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
 function Inscription() {
   const [nom, setnom] = useState("");
@@ -8,14 +10,13 @@ function Inscription() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmePwd, setconfirmePwd] = useState("");
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      if (password==confirmePwd){
-    const response = await axios.post(
-
-       
-        "http://localhost:3200/api/auth/register",
+      if (password===confirmePwd){
+     await axios.post(
+      "http://localhost:3200/api/auth/register",
         {
         nom:nom,
         prenom:prenom,
@@ -24,14 +25,14 @@ function Inscription() {
           confirmePwd:confirmePwd,
         }
       );
-      console.log(response.data);
+      navigate('/connecter');
       alert("inscription terminée!");
     }
     else{
       alert("mot de pass incorrect!");
     }
   } catch (error) {
-      console.log(error);
+      ;alert(error);
     }
   };
     return (
@@ -43,7 +44,7 @@ function Inscription() {
             <Card className="shadow">
               <Card.Body>
                 <div >
-                  <h2 className="fw-bold mb-2 text-uppercase ">TastyFood</h2>
+                  <h2 className="fw-bold mb-2 text-uppercase ">Inscription</h2>
                   <p className=" mb-1">Inscrivez-vous!</p>
                   <div className="mb-1">
                     <Form onSubmit={handleSubmit}>
@@ -92,7 +93,7 @@ function Inscription() {
                     <div className="mt-3">
                       <p className="mb-0  text-center">
                         vous avez déja un compte?{" "}
-                        <a href="{''}" className="text-warning fw-bold">
+                        <a href="/connecter" className="text-warning fw-bold">
                           se connecter
                         </a>
                       </p>

@@ -1,8 +1,5 @@
 import React from 'react'
 import"../css/style.css"
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import Nav from 'react-bootstrap/Nav';
 
 function Footer() {
   return (
