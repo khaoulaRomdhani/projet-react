@@ -7,6 +7,7 @@ function Connecter() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const[isAutheticated, setisAutheticated] = useState(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -17,6 +18,12 @@ function Connecter() {
           password: password,
         }
       );
+      
+
+  
+    setisAutheticated(true);
+    console.log("loggedInUser:" + isAutheticated)
+  
       navigate('/');
       
       alert("Login successful!");
