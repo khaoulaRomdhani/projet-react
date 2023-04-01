@@ -111,11 +111,7 @@ nav #lastnav:hover{
      height: 40px;
       
     }
-    .couleur-admin{
-        background-color: rgb(255, 254, 254);
-        
-        
-    }
+   
     
     
   
@@ -124,9 +120,32 @@ nav #lastnav:hover{
         background-color: #fb911f;
         background-size: cover;
         background-repeat: no-repeat;
-        padding: 7.5% 0%;
+        padding: 1.5% 0%;
         
         
+    }
+    .couleur-admin {
+      background-color: #F5F5F5; /* Couleur de fond */
+      padding: 20px;
+    }
+    
+    .card {
+      margin-top: 20px;
+    }
+    
+    .card-img-top {
+      height: 200px; /* Hauteur de l'image */
+      object-fit: cover; /* Affichage de l'image */
+    }
+    
+    .card-title {
+      font-size: 1.5rem; /* Taille du titre */
+      margin-bottom: 10px;
+    }
+    
+    .card-text {
+      font-size: 1.2rem; /* Taille du texte */
+      margin-bottom: 10px;
     }
     
      
@@ -140,79 +159,7 @@ nav #lastnav:hover{
         padding: 2% 0%;
     }
     
-/*.menu {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 20px;
-}
 
-.section {
-  flex: 1;
-  margin: 10px;
-  padding: 10px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.item {
-  display: flex;
-  align-items: center;
-  margin: 10px;
-}
-
-img {
-  height: 100px;
-  margin-right: 10px;
-}
-
-.info {
-  display: flex;
-  flex-direction: column;
-}
-
-.price {
-  font-weight: bold;
-  color: #fb911f;
-}
-
-.recipe {
-  display: none;
-  margin: 10px;
-  padding: 10px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.recipe ul,
-.recipe ol {
-  padding-left: 20px;
-}
-
-.recipe-button {
-  background-color: #fb911f;
-  border-color: #fb911f;
-  color: #fff;
-  font-weight: bold;
-  border-radius: 5px;
-  padding: 5px 10px;
-  transition: background-color 0.2s ease;
-}
-
-.recipe-button:focus + .recipe {
-  display: block;
-}
-
-.section span {
-  color: #fb911f;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 14px;
-}*/
-  
    
 .menu {
   display: flex;
