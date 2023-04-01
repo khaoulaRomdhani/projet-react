@@ -18,7 +18,6 @@ import Contact from "./components/contact";
 import Ingredients from "./components/ingredients";
 import AuthGarde from "./athGarde"
 
-
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -28,18 +27,20 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Main />}>
+          <Route path="/" element={<Home />}></Route>
             <Route path="/menu" element={<Menu />}></Route>
             <Route path="/contact" element={<Contact />}></Route>
             <Route path="/inscription" element={<Inscription />}></Route>
             <Route path="/apropos" element={<Apropos />}></Route>
             <Route path="/connecter" element={<Connecter setIsAuthenticated={setIsAuthenticated} />}></Route>
             <Route path="/admin" element={<Admin />}></Route>
-            <Route path="/ingredients" element={<Ingredients />}></Route>
+            <Route path="/ingredients" element={<AuthGarde isAuthenticated={isAuthenticated} path="/ingredients" element={<Ingredients />} />} />
           </Route>
         </Routes>
       </Fragment>
-      <AuthGarde isAuthenticated={isAuthenticated} path="/ingredients" element={<Ingredients />} />
     </Router>
+  );
+}
 
     /* <BrowserRouter>
        <Routes>
@@ -55,7 +56,6 @@ function App() {
          </Route>
        </Routes>
      </BrowserRouter>*/
-  );
-}
+  
 
 export default App;
