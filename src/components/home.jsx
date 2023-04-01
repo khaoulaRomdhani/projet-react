@@ -12,8 +12,8 @@ function Home() {
             <h2>que des plats délicieux</h2>
             <p>tous nos conseils pour un faire de bon plat</p>
             <div class="button">
-            <Button href="/connecter" variant="warning">se connecter</Button>{' '}
-            <Button   href="/Inscription" id="lastnav"variant="outline-success">Inscription</Button>
+            <Button   href="/connecter" variant="warning">Se connecter</Button>{' '}
+            <a   href="/Inscription" id="lastnav"variant="outline-success">Inscription</a>
              </div>
              </div>
            

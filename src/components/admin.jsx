@@ -5,10 +5,10 @@ function Admin() {
     return (
         <div class="couleur-admin">
 <h1>Administrateurs du site:</h1>
-<section class="card d-flex justify-content-around">
+<section  class="card d-flex justify-content-around">
 <div class="row admin">
       <div class=" col-lg-4  ">
-<Card style={{ width: '18rem' }}>
+<Card   style={{ width: '18rem' }}>
       <Card.Img variant="top" src="https://scontent.fnbe1-2.fna.fbcdn.net/v/t39.30808-6/336768773_1542992882879382_1848645604997797021_n.jpg?stp=c0.101.480.480a_dst-jpg&_nc_cat=104&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=L_ueVxDHP3QAX9sVcYn&_nc_ht=scontent.fnbe1-2.fna&oh=00_AfB1QcAvDsq7U3jxWmX6gS6Br7ApkPTwe76IVbf_8-1BHQ&oe=642503CA" />
       <Card.Body>
         <Card.Title>Khaoula Romdhani</Card.Title>

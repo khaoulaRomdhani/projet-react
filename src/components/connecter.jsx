@@ -3,29 +3,26 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
+
 function Connecter() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const[isAutheticated, setisAutheticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-       await axios.post(
+      await axios.post(
         "http://localhost:3200/api/auth/login",
         {
           email: email,
           password: password,
         }
       );
-      
-
-  
-    setisAutheticated(true);
-    console.log("loggedInUser:" + isAutheticated)
-  
+      setIsAuthenticated(true);
+      console.log("loggedInUser:" + isAuthenticated)
       navigate('/');
-      
       alert("Login successful!");
     } catch (error) {
       alert("Invalid email or password");
